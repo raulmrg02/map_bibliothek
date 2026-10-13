@@ -55,7 +55,18 @@ void main() {
     // 5
     int minPages = 300;
     System.out.println("Mindestanzahl: " + minPages + " Seiten");
-    for(Book book: library.getBooksWithMinPages(books, minPages)){
+    for (Book book : library.getBooksWithMinPages(books, minPages)) {
         System.out.println(book.getTitle());
+    }
+    System.out.println();
+
+    // 6
+    int budget = 55;
+    System.out.println("Budget: " + budget + " Euro");
+    ArrayList<Book> pair = library.getTwoBooksForBudget(books, budget);
+    if (!pair.isEmpty()) {
+        int totalPrice = pair.getFirst().getPrice() + pair.getLast().getPrice();
+        System.out.println(pair.getFirst().getTitle() + " + " + pair.getLast().getTitle());
+        System.out.println("Gesamtpreis: " + totalPrice + " Euro");
     }
 }

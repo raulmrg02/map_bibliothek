@@ -75,4 +75,35 @@ public class Library {
         }
         return matchingBooks;
     }
+
+    public ArrayList<Book> getTwoBooksForBudget(ArrayList<Book> bookList, int budget) {
+        ArrayList<Book> matchingBooks = new ArrayList<>();
+        for (int i = 0; i < bookList.size() - 1; i++) {
+            for (int j = 1; j < bookList.size(); j++) {
+                if (bookList.get(i).getPrice() + bookList.get(j).getPrice() <= budget) {
+                    if (!matchingBooks.isEmpty()) {
+                        if (bookList.get(i).getPrice() + bookList.get(j).getPrice() > matchingBooks.getFirst().getPrice() + matchingBooks.getLast().getPrice()) {
+                            matchingBooks.removeFirst();
+                            matchingBooks.removeFirst();
+                        } else if (bookList.get(i).getPrice() + bookList.get(j).getPrice() == matchingBooks.getFirst().getPrice() + matchingBooks.getLast().getPrice()) {
+                            if (bookList.get(i).getPageCount() + bookList.get(j).getPageCount() > matchingBooks.getFirst().getPageCount() + matchingBooks.getLast().getPageCount()) {
+                                matchingBooks.removeFirst();
+                                matchingBooks.removeFirst();
+                            } else {
+                                continue;
+                            }
+                        } else {
+                            continue;
+                        }
+                    }
+                    matchingBooks.add(bookList.get(i));
+                    matchingBooks.add(bookList.get(j));
+                }
+            }
+        }
+        if (matchingBooks.isEmpty()) {
+            System.out.println("There is no book pair under " + budget + " Euro");
+        }
+        return matchingBooks;
+    }
 }
