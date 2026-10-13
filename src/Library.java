@@ -19,4 +19,27 @@ public class Library {
             System.out.println("No books found for author: " + author);
         }
     }
+
+    public double getAveragePageCount(String[] titles) {
+        int totalPageCount = 0;
+        int matchingBookCount = 0;
+
+        for (String title : titles) {
+            for (Book book : books) {
+                if (Objects.equals(book.getTitle(), title)) {
+                    totalPageCount += book.getPageCount();
+                    matchingBookCount++;
+                    break;
+                }
+            }
+        }
+
+        if (matchingBookCount == 0) {
+            return 0.0;
+        }
+
+        double average = (double) totalPageCount / matchingBookCount;
+        int fixedDecimalAverage = (int) (average * 100);
+        return fixedDecimalAverage / 100.0;
+    }
 }

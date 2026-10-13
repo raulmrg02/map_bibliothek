@@ -9,5 +9,8 @@ void main() {
     Library library = new Library(books);
     String author = "George Orwell";
     System.out.println("Author: " + author);
-    library.getBooksByAuthor("George Orwell");
+    library.getBooksByAuthor(author);
+
+    String[] titles = {"Clean Code", "1984", "Animal Farm"};
+    System.out.println(library.getAveragePageCount(titles));
 }
