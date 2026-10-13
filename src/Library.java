@@ -48,4 +48,18 @@ public class Library {
         }
         return matchingBooks;
     }
+
+    public Book getMostExpensiveBook(ArrayList<Book> bookList) {
+        if (bookList == null || bookList.isEmpty()) {
+            return null;
+        }
+
+        Book expensiveBook = bookList.getFirst();
+        for (Book book : bookList) {
+            if (book.getPrice() > expensiveBook.getPrice()) {
+                expensiveBook = book;
+            }
+        }
+        return expensiveBook;
+    }
 }

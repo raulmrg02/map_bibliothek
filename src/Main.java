@@ -41,4 +41,14 @@ void main() {
         System.out.println(book.getTitle());
     }
     System.out.println();
+
+    // 4
+    bookList.removeFirst();
+    bookList.add(book5);
+    for (Book book : bookList) {
+        System.out.println(book.getTitle());
+    }
+    Book mostExpensiveBook = library.getMostExpensiveBook(bookList);
+    System.out.println(mostExpensiveBook.getTitle() + "(" + mostExpensiveBook.getPrice() + " Euro)");
+    System.out.println();
 }
