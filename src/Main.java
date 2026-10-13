@@ -1,16 +1,44 @@
+import java.util.ArrayList;
+
 void main() {
-    Book[] books = {
-            new Book("Clean Code", "Robert Martin", 45, 464),
-            new Book("1984", "George Orwell", 18, 328),
-            new Book("Animal Farm", "George Orwell", 12, 112),
-            new Book("Java Basics", "Max Muller", 35, 520),
-            new Book("The Hobbit", "J. R. R. Tolkien", 28, 310)
-    };
+    ArrayList<Book> books = new ArrayList<>();
+    Book book1 = new Book("Clean Code", "Robert Martin", 45, 464);
+    Book book2 = new Book("1984", "George Orwell", 18, 328);
+    Book book3 = new Book("Animal Farm", "George Orwell", 12, 112);
+    Book book4 = new Book("Java Basics", "Max Muller", 35, 520);
+    Book book5 = new Book("The Hobbit", "J. R. R. Tolkien", 28, 310);
+    books.add(book1);
+    books.add(book2);
+    books.add(book3);
+    books.add(book4);
+    books.add(book5);
+
     Library library = new Library(books);
+
+    // 1
     String author = "George Orwell";
     System.out.println("Author: " + author);
-    library.getBooksByAuthor(author);
+    for (Book book : library.getBooksByAuthor(author)) {
+        System.out.println(book.getTitle());
+    }
+    System.out.println();
 
-    String[] titles = {"Clean Code", "1984", "Animal Farm"};
-    System.out.println(library.getAveragePageCount(titles));
+    // 2
+    ArrayList<Book> bookList = new ArrayList<>();
+    bookList.add(book1);
+    bookList.add(book2);
+    bookList.add(book3);
+    for (Book book : bookList) {
+        System.out.println(book.getTitle());
+    }
+    System.out.println(library.getAveragePageCount(bookList));
+    System.out.println();
+
+    // 3
+    double price = 30;
+    System.out.println("Maximaler Preis: " + price + " Euro");
+    for (Book book : library.getBooksUnderPrice(books, price)) {
+        System.out.println(book.getTitle());
+    }
+    System.out.println();
 }
