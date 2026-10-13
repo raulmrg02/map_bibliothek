@@ -62,4 +62,17 @@ public class Library {
         }
         return expensiveBook;
     }
+
+    public ArrayList<Book> getBooksWithMinPages(ArrayList<Book> bookList, int minPages) {
+        ArrayList<Book> matchingBooks = new ArrayList<>();
+        for (Book book : bookList) {
+            if (book.getPageCount() >= minPages) {
+                matchingBooks.add(book);
+            }
+        }
+        if (matchingBooks.isEmpty()) {
+            System.out.println("There are no books with more than " + minPages + " Pages");
+        }
+        return matchingBooks;
+    }
 }

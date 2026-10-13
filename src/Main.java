@@ -51,4 +51,11 @@ void main() {
     Book mostExpensiveBook = library.getMostExpensiveBook(bookList);
     System.out.println(mostExpensiveBook.getTitle() + "(" + mostExpensiveBook.getPrice() + " Euro)");
     System.out.println();
+
+    // 5
+    int minPages = 300;
+    System.out.println("Mindestanzahl: " + minPages + " Seiten");
+    for(Book book: library.getBooksWithMinPages(books, minPages)){
+        System.out.println(book.getTitle());
+    }
 }
