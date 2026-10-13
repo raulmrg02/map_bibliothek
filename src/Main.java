@@ -35,7 +35,7 @@ void main() {
     System.out.println();
 
     // 3
-    double price = 30;
+    int price = 30;
     System.out.println("Maximaler Preis: " + price + " Euro");
     for (Book book : library.getBooksUnderPrice(books, price)) {
         System.out.println(book.getTitle());

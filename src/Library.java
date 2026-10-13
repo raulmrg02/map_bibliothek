@@ -36,7 +36,7 @@ public class Library {
         return fixedDecimalAverage / 100.0;
     }
 
-    public ArrayList<Book> getBooksUnderPrice(ArrayList<Book> bookList, double price) {
+    public ArrayList<Book> getBooksUnderPrice(ArrayList<Book> bookList, int price) {
         ArrayList<Book> matchingBooks = new ArrayList<>();
         for (Book book : bookList) {
             if (book.getPrice() <= price) {
